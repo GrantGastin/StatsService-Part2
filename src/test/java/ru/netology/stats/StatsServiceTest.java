@@ -5,72 +5,64 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StatsServiceTest {
-    @Test
 
-    void shouldCalculateSum() {
-        ru.netology.stats.StatsService service = new ru.netology.stats.StatsService();
-        int [] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
+    @Test
+    void shouldSumAllSales() {
+        StatsService service = new StatsService();
+        int[] allSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 180;
-        //вызываем целевой метод теста:
-        int actual = service.calculateSum(sales);
-        //производим проверку - сравниваем ожидаемый и фактический результаты:
+
+        int actual = service.sumAllSales(allSales);
         assertEquals(expected, actual);
     }
 
     @Test
-
-    void shouldCalculateAverage() {
-        ru.netology.stats.StatsService service = new ru.netology.stats.StatsService();
-        int [] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
+    void shouldAverageSumSales() {
+        StatsService service = new StatsService();
+        int[] allSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 15;
-        //вызываем целевой метод теста:
-        int actual = service.calculateAverage(sales);
-        //производим проверку - сравниваем ожидаемый и фактический результаты:
+
+        int actual = service.averageSumSales(allSales);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCalculateMax() {
-        ru.netology.stats.StatsService service = new ru.netology.stats.StatsService();
-        int [] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
+    void shouldBestSalesMonth() {
+        StatsService service = new StatsService();
+        int[] allSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 8;
-        //вызываем целевой метод теста:
-        int actual = service.findMax(sales);
-        //производим проверку - сравниваем ожидаемый и фактический результаты:
+
+        int actual = service.peakSales(allSales);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCalculateMin() {
-        ru.netology.stats.StatsService service = new ru.netology.stats.StatsService();
-        int [] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
+    void shouldWorstSalesMonth() {
+        StatsService service = new StatsService();
+        int[] allSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 9;
-        //вызываем целевой метод теста:
-        int actual = service.findMin(sales);
-        //производим проверку - сравниваем ожидаемый и фактический результаты:
-        assertEquals(expected, actual);
-    }
 
-
-    @Test
-    void shouldCalculateMAverage() {
-        ru.netology.stats.StatsService service = new ru.netology.stats.StatsService();
-        int [] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
-        int expected = 5;
-        //вызываем целевой метод теста:
-        int actual = service.moreAverage(sales);
-        //производим проверку - сравниваем ожидаемый и фактический результаты:
+        int actual = service.declineSales(allSales);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCalculateLAverage() {
-        ru.netology.stats.StatsService service = new ru.netology.stats.StatsService();
-        int [] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
+    void shouldBelowAverage() {
+        StatsService service = new StatsService();
+        int[] allSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
-        //вызываем целевой метод теста:
-        int actual = service.lessAverage(sales);
-        //производим проверку - сравниваем ожидаемый и фактический результаты:
+
+        int actual = service.belowAverage(allSales);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldAboveAverage() {
+        StatsService service = new StatsService();
+        int[] allSales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 5;
+
+        int actual = service.aboveAverage(allSales);
         assertEquals(expected, actual);
     }
 }
